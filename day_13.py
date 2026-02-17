@@ -26,9 +26,20 @@ DEBUGGING
 #     print("You are a Gen Z.")
 
 # # Fix the Errors
-# age = int(input("How old are you? "))
-# if age > 18:
-#     print(f"You can drive at age {age}.")
+def main():
+    age = int(input("How old are you? "))
+    if age >= 18:
+        print(f"You can drive at age {age}.")
+
+if __name__ == "__main__":
+    main()
+        print(f"You can drive at age {age}.")
+    elif age > 0:
+        print("You are not old enough to drive yet.")
+    else:
+        print("Age must be a positive number.")
+except ValueError:
+    print("Invalid input. Please enter a number for your age.")
 
 # Print is Your Friend
 # pages = int(input("Number of pages: "))
