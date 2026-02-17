@@ -1,6 +1,9 @@
 # Password Generator Project
 import random
+import secrets
 from string import ascii_letters, digits
+
+rng = secrets.SystemRandom()
 
 letters = [*ascii_letters]
 numbers = [*digits]
@@ -15,9 +18,9 @@ nr_numbers = int(input("How many numbers would you like?\n"))
 # e.g. 4 letter, 2 symbol, 2 number = JduE&!91
 easy_pass = ""
 
-easy_pass += "".join(random.choices(letters, k=nr_letters))
-easy_pass += "".join(random.choices(symbols, k=nr_symbols))
-easy_pass += "".join(random.choices(numbers, k=nr_numbers))
+easy_pass += "".join(rng.choices(letters, k=nr_letters))
+easy_pass += "".join(rng.choices(symbols, k=nr_symbols))
+easy_pass += "".join(rng.choices(numbers, k=nr_numbers))
 
 print(f"Here is your password: {easy_pass}")
 
@@ -25,11 +28,11 @@ print(f"Here is your password: {easy_pass}")
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 hard_pass = ""
 
-hard_pass += "".join(random.sample(letters, k=nr_letters))
-hard_pass += "".join(random.sample(symbols, k=nr_symbols))
-hard_pass += "".join(random.sample(numbers, k=nr_numbers))
+hard_pass += "".join(rng.sample(letters, k=nr_letters))
+hard_pass += "".join(rng.sample(symbols, k=nr_symbols))
+hard_pass += "".join(rng.sample(numbers, k=nr_numbers))
 
 # shuffle the password
-hard_pass = "".join(random.sample(hard_pass, len(hard_pass)))
+hard_pass = "".join(rng.sample(hard_pass, len(hard_pass)))
 
 print(f"Here is your password: {hard_pass}")
